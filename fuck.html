@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client-side Search</title>
+    <style>
+        .hidden,#dataList { display: none; }
+    </style>
+</head>
+<body>
+    <input type="text" id="searchBar" placeholder="Search...">
+    <ul id="dataList">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Cherry</li>
+        <li>Date</li>
+        <li>Elderberry</li>
+    </ul>
+
+    <script>
+        document.getElementById('searchBar').addEventListener('keyup', function() {
+            const query = this.value.toLowerCase();
+            const items = document.querySelectorAll('#dataList li');
+            items.forEach(function(item) {
+                if (item.textContent.toLowerCase().includes(query)) {
+                    item.classList.remove('hidden');
+                    item.display
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
